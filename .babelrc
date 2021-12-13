@@ -1,0 +1,4 @@
+{
+  "presets": ["next/babel", "@babel/env"],
+  "plugins": ["@babel/plugin-transform-runtime"]
+}
