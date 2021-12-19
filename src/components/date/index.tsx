@@ -4,5 +4,5 @@ import datePropsType from './dateType';
 export default function Date({ dateString }: datePropsType) {
   const date = parseISO(dateString);
 
-  return <time dateTime={format(date, 'YYYY-MM-DD')}></time>;
+  return <time dateTime={dateString}>{format(date, 'yyyy-MM-dd')}</time>;
 }

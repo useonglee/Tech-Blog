@@ -5,8 +5,8 @@ import utilStyles from '@styles/utils.module.css';
 import Link from 'next/link';
 import LayoutPropsType from './layoutType';
 
-const name = "Useong's Blog";
-export const siteTitle = 'Next.js Sample Website';
+const name = '';
+export const siteTitle = '이우성 기술블로그';
 
 export default function Layout({ children, home }: LayoutPropsType) {
   return (
