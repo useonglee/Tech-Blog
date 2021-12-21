@@ -17,12 +17,13 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Home = ({ allPostsData }) => {
+function Home({ allPostsData }) {
   const { siteTitle } = SiteConfig;
 
   return (
     <Layout home>
       <Head>
+        <link rel="stylesheet" href="../styles/font.css" />
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
@@ -48,6 +49,6 @@ const Home = ({ allPostsData }) => {
       </section>
     </Layout>
   );
-};
+}
 
 export default Home;
