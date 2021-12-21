@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const Post = ({ postData }) => {
+function Post({ postData }) {
   return (
     <Layout>
       <Head>
@@ -39,6 +39,6 @@ const Post = ({ postData }) => {
       </article>
     </Layout>
   );
-};
+}
 
 export default Post;
