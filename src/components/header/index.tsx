@@ -4,6 +4,7 @@ import Link from 'next/link';
 import utilStyles from '@styles/utils.module.css';
 import { HeaderRightContent, HeaderStyle, LogoBox } from './headerStyle';
 import { SiteConfig } from '@config';
+import ImageTag from '@components/imageTag';
 
 function Header() {
   const { name } = SiteConfig;
@@ -13,14 +14,7 @@ function Header() {
       <LogoBox>
         <Link href="/">
           <a>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={108}
-              width={108}
-              alt={name}
-            />
+            <ImageTag type="profile" circle alt="프로필 사진" />
           </a>
         </Link>
         <h2 className={utilStyles.headingLg}>
