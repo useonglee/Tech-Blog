@@ -12,7 +12,7 @@ export const SiteConfig = {
   menu: [
     {
       label: '게시글',
-      path: '/posts/1',
+      path: '/posts',
     },
     {
       label: '업무 회고',

@@ -6,7 +6,7 @@ import LayoutPropsType from './layoutType';
 import { LayoutStyle } from './layoutStyle';
 import { SiteConfig } from '@config';
 
-const Layout = ({ children, home }: LayoutPropsType) => {
+function Layout({ children, home }: LayoutPropsType) {
   const { siteTitle } = SiteConfig;
 
   return (
@@ -37,6 +37,6 @@ const Layout = ({ children, home }: LayoutPropsType) => {
       )}
     </LayoutStyle>
   );
-};
+}
 
 export default Layout;

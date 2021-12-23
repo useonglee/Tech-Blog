@@ -1,11 +1,12 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./jsconfig.json",
+    "project": "./tsconfig.json",
     "ecmaVersion": 2021,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "tsx": true
     }
   },
   "env": {
@@ -16,11 +17,11 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@eslint/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["import", "react-hooks", "eslint"],
+  "plugins": ["import", "react-hooks", "@typescript-eslint"],
   "rules": {
     "eslint/explicit-module-boundary-types": "off",
     "eslint/no-var-requires": 0,

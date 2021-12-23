@@ -4,15 +4,17 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '@styles/globalStyle';
 import Theme from '@styles/Theme';
 
-export default function App({ Component, pageProps }: AppProps) {
-  const mounted: boolean = useMounted();
+function App({ Component, pageProps }: AppProps) {
+  const isMounted: boolean = useMounted();
 
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={Theme}>
-        {mounted && <Component {...pageProps} />}
+        {isMounted && <Component {...pageProps} />}
       </ThemeProvider>
     </>
   );
 }
+
+export default App;
