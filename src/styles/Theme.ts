@@ -21,6 +21,7 @@ const flex = {
 };
 
 const color = {
+  main: '#6667AB',
   blue: '#1890FF',
 };
 
