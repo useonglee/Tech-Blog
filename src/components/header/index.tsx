@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import utilStyles from '@styles/utils.module.css';
 import { HeaderRightContent, HeaderStyle, LogoBox } from './headerStyle';
@@ -14,12 +13,18 @@ function Header() {
       <LogoBox>
         <Link href="/">
           <a>
-            <ImageTag type="profile" circle alt="프로필 사진" />
+            <ImageTag
+              src="/images/profile.jpg"
+              width="58px"
+              height="58px"
+              circle="true"
+              alt="프로필 사진"
+            />
           </a>
         </Link>
-        <h2 className={utilStyles.headingLg}>
+        <h2>
           <Link href="/">
-            <a className={utilStyles.colorInherit}>{name}</a>
+            <a>{name}</a>
           </Link>
         </h2>
       </LogoBox>

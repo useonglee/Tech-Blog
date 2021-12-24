@@ -114,7 +114,7 @@ export const GlobalStyle = createGlobalStyle`
 
     &:hover, &:active {
       text-decoration: none;
-      color:#fff;
+      color: #6667AB;
     }
   }
   b {

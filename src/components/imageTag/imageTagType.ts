@@ -1,5 +1,7 @@
 export default interface imageTagPropsType {
-  type: string;
+  src: string;
+  width: string;
+  height: string;
   circle?: string;
   alt: string;
 }

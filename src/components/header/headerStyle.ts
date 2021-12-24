@@ -9,7 +9,18 @@ export const HeaderStyle = styled.header`
   font-family: 'NanumSquareB';
 `;
 
-export const LogoBox = styled.div``;
+export const LogoBox = styled.div`
+  ${({ theme }) => theme.flex.flexCenter}
+  flex-direction: row;
+
+  & > a {
+    margin-right: 12px;
+  }
+
+  & > h2 {
+    font-size: 1.5rem;
+  }
+`;
 
 export const HeaderRightContent = styled.div`
   ${({ theme }) => theme.flex.flexVertical}

@@ -1,10 +1,11 @@
 import React from 'react';
 import { ImageTagStyle } from './imageTagStyle';
+import imageTagPropsType from './imageTagType';
 
-function ImageTag(props: any) {
+function ImageTag(props: imageTagPropsType) {
   const { ...rest } = props;
 
-  return <ImageTagStyle priority src="/images/profile.jpg" {...rest} />;
+  return <ImageTagStyle priority {...rest} />;
 }
 
 export default ImageTag;
