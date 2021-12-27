@@ -4,6 +4,7 @@ import utilStyles from '@styles/utils.module.css';
 import { HeaderRightContent, HeaderStyle, LogoBox } from './headerStyle';
 import { SiteConfig } from '@config';
 import ImageTag from '@components/imageTag';
+import ThemeSwitch from '@components/themeSwitch';
 
 function Header() {
   const { name } = SiteConfig;
@@ -14,7 +15,7 @@ function Header() {
         <Link href="/">
           <a>
             <ImageTag
-              src="/images/profile.jpg"
+              src="/assets/images/profile.jpg"
               width="58px"
               height="58px"
               circle="true"
@@ -36,7 +37,7 @@ function Header() {
             </Link>
           ))}
         </div>
-        <button>theme</button>
+        <ThemeSwitch />
       </HeaderRightContent>
     </HeaderStyle>
   );

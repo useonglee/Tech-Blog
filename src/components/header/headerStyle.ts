@@ -29,9 +29,9 @@ export const HeaderRightContent = styled.div`
     & > a {
       padding: 0 16px;
     }
+  }
 
-    & > button {
-      padding: 0 24px;
-    }
+  & > button {
+    padding: 0 24px;
   }
 `;
