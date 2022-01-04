@@ -1,52 +1,9 @@
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
-import { getSortedPostsData } from '@lib/posts';
-import Date from '@components/date';
 import Layout from '@components/layout';
-import utilStyles from '@styles/utils.module.css';
-import { SiteConfig } from '@config';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
-
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-};
-
-function Home({ allPostsData }) {
-  const { siteTitle } = SiteConfig;
-
+function Home() {
   return (
     <Layout home>
-      <Head>
-        <link rel="stylesheet" href="../styles/font.css" />
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Hi, I'm Useong Lee</p>
-      </section>
-
-      {/* Add this <section> tag below the existing <section> tag */}
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <div>안녕하세요. 이우성 기술블로그 입니다.</div>
     </Layout>
   );
 }
