@@ -23,7 +23,6 @@ function Posts({ allPostsData }) {
   return (
     <Layout home>
       <Head>
-        <link rel="stylesheet" href="../styles/font.css" />
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
