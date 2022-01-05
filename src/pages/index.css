@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'NanumSquareL';
+  src: url('../assets/fonts/NanumSquareL.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareR';
+  src: url('../assets/fonts/NanumSquareR.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareB';
+  src: url('../assets/fonts/NanumSquareB.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareEB';
+  src: url('../assets/fonts/NanumSquareEB.otf') format('opentype');
+}

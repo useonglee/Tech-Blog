@@ -15,7 +15,7 @@ function Header() {
         <Link href="/">
           <a>
             <ImageTag
-              src="/assets/images/profile.jpg"
+              src="/images/profile.jpg"
               width="58px"
               height="58px"
               circle="true"

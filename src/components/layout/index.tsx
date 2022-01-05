@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@components/header';
-import styles from './layout.module.css';
 import LayoutPropsType from './layoutType';
 import { LayoutStyle } from './layoutStyle';
 import { SiteConfig } from '@config';
@@ -29,7 +28,7 @@ function Layout({ children, home }: LayoutPropsType) {
       <Header />
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
