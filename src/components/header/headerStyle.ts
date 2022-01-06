@@ -4,8 +4,8 @@ export const HeaderStyle = styled.header`
   ${({ theme }) => theme.flex.flexVertical}
   justify-content: space-between;
   flex-direction: row;
-  padding: 2.5rem 0;
   width: 100%;
+  padding: 2.5rem 0;
   font-family: 'NanumSquareB';
 `;
 
@@ -25,13 +25,34 @@ export const LogoBox = styled.div`
 export const HeaderRightContent = styled.div`
   ${({ theme }) => theme.flex.flexVertical}
 
-  & > div {
-    & > a {
-      padding: 0 16px;
-    }
+  & > a {
+    display: block;
+    position: relative;
+    padding: 0 16px;
+  }
+
+  & > a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -5px;
+  }
+
+  & > a::after {
+    width: 0;
+    height: 3px;
+    background: ${({ theme }) => theme.color.main};
+    left: 50%;
+  }
+
+  & > a:hover::after {
+    width: 100%;
+    left: 0;
+    transition: all 0.3s;
   }
 
   & > button {
-    padding: 0 24px;
+    ${({ theme }) => theme.flex.flexVertical}
+    padding: 0 20px;
   }
 `;
