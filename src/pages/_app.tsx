@@ -10,12 +10,14 @@ function App({ Component, pageProps }: AppProps) {
   const isMounted: boolean = useMounted();
 
   return (
-    <ThemeSwich>
+    <>
       <GlobalStyle />
-      <ThemeProvider theme={Theme}>
-        {isMounted && <Component {...pageProps} />}
-      </ThemeProvider>
-    </ThemeSwich>
+      <ThemeSwich>
+        <ThemeProvider theme={Theme}>
+          {isMounted && <Component {...pageProps} />}
+        </ThemeProvider>
+      </ThemeSwich>
+    </>
   );
 }
 

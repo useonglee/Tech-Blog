@@ -3,6 +3,16 @@ import { reset } from 'styled-reset';
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
+  :root {
+    --fg: #202020;
+    --bg: #fff;
+  }
+
+  [data-theme="dark"] {
+    --fg: #d9d9d9;
+    --bg: #1e1f21;
+  }
+
   /* CSS 초기화 */
   * {
     box-sizing: border-box;
@@ -21,6 +31,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     min-width: 360px;
     line-height: 1.25;
+    background: var(--bg);
+    color: var(--fg);
   }
 
   html, body, div, span, applet, object, iframe,
@@ -107,13 +119,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: #000;
+    color: var(--fg);
     text-decoration: none;
     outline: none;
 
     &:hover, &:active {
       text-decoration: none;
-      color: #6667AB;
     }
   }
   b {
