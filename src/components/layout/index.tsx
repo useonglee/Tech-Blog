@@ -7,6 +7,8 @@ import { SiteConfig } from '@config';
 
 function Layout({ children, home }: LayoutPropsType) {
   const { siteTitle } = SiteConfig;
+  const url = new URL(window.location.href);
+  const curPage = url.pathname.split('/')[1];
 
   return (
     <LayoutStyle>
@@ -29,7 +31,7 @@ function Layout({ children, home }: LayoutPropsType) {
       <main>{children}</main>
       {!home && (
         <div>
-          <Link href="/">
+          <Link href={`/${curPage}`}>
             <a>← Back to home</a>
           </Link>
         </div>
