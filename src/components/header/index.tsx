@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import ImageTag from '@components/common/ImageTag';
 import ThemeSwitch from '@components/ThemeSwitch';
