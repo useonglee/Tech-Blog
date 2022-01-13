@@ -1,7 +1,6 @@
-import React from 'react';
 import Link from 'next/link';
-import ImageTag from '@components/imageTag';
-import ThemeSwitch from '@components/themeSwitch';
+import ImageTag from '@components/common/ImageTag';
+import ThemeSwitch from '@components/ThemeSwitch';
 import { HeaderRightContent, HeaderStyle, LogoBox } from './headerStyle';
 import { SiteConfig } from '@config';
 

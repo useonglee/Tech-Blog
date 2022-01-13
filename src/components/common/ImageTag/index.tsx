@@ -1,4 +1,3 @@
-import React from 'react';
 import { ImageTagStyle } from './imageTagStyle';
 import imageTagPropsType from './imageTagType';
 
