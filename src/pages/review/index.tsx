@@ -2,8 +2,8 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { getSortedPostsData } from '@lib/review';
-import Date from '@components/date';
-import Layout from '@components/layout';
+import Date from '@components/common/Date';
+import Layout from '@components/common/Layout';
 import utilStyles from '@styles/utils.module.css';
 import { SiteConfig } from '@config';
 
