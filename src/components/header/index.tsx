@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ImageTag from '@components/common/ImageTag';
 import ThemeSwitch from '@components/ThemeSwitch';
-import { HeaderRightContent, HeaderStyle, LogoBox } from './headerStyle';
+import { HeaderMenu, HeaderStyle, LogoBox } from './headerStyle';
 import { SiteConfig } from '@config';
 
 function Header() {
@@ -27,16 +27,16 @@ function Header() {
           </Link>
         </h2>
       </LogoBox>
-      <HeaderRightContent>
-        <>
-          {SiteConfig.menu.map((link) => (
+      <HeaderMenu>
+        {SiteConfig.menu.map((link) => (
+          <li>
             <Link key={link.label} href={link.path}>
               {link.label}
             </Link>
-          ))}
-        </>
-        <ThemeSwitch />
-      </HeaderRightContent>
+          </li>
+        ))}
+      </HeaderMenu>
+      <ThemeSwitch />
     </HeaderStyle>
   );
 }

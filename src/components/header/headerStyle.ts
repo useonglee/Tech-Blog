@@ -4,14 +4,14 @@ export const HeaderStyle = styled.header`
   ${({ theme }) => theme.flex.flexVertical}
   justify-content: space-between;
   flex-direction: row;
-  width: 100%;
-  padding: 2.5rem 0;
+  padding: 30px 75px;
   font-family: 'NanumSquareB';
 `;
 
 export const LogoBox = styled.div`
   ${({ theme }) => theme.flex.flexCenter}
   flex-direction: row;
+  flex-shrink: 0;
 
   & > a {
     margin-right: 12px;
@@ -22,8 +22,10 @@ export const LogoBox = styled.div`
   }
 `;
 
-export const HeaderRightContent = styled.div`
+export const HeaderMenu = styled.ul`
   ${({ theme }) => theme.flex.flexVertical}
+  flex-grow: 1;
+  margin-left: auto;
 
   & > a {
     display: block;
