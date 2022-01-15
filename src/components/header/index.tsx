@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import ImageTag from '@components/common/ImageTag';
 import ThemeSwitch from '@components/ThemeSwitch';
 import { HeaderMenu, HeaderStyle, LogoBox } from './headerStyle';
 import { SiteConfig } from '@config';
@@ -10,7 +9,7 @@ function Header() {
   return (
     <HeaderStyle>
       <LogoBox>
-        <Link href="/">
+        {/* <Link href="/">
           <a>
             <ImageTag
               src="/images/profile.jpg"
@@ -20,7 +19,7 @@ function Header() {
               alt="프로필 사진"
             />
           </a>
-        </Link>
+        </Link> */}
         <h2>
           <Link href="/">
             <a>{name}</a>

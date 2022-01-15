@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { getSortedPostsData } from '@lib/posts';
 import Date from '@components/common/Date';
 import Layout from '@components/common/Layout';
+import ImageTag from '@components/common/ImageTag';
 import utilStyles from '@styles/utils.module.css';
+import { PostsContainer } from './postsPageStyle';
 import { SiteConfig } from '@config';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -17,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-function Posts({ allPostsData }) {
+function PostsPage({ allPostsData }) {
   const { siteTitle } = SiteConfig;
 
   return (
@@ -25,15 +27,20 @@ function Posts({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>끄적끄적</p>
+      <section>
+        <ImageTag
+          src="/images/post-banner.png"
+          width={'1920px'}
+          height={'560px'}
+          alt="게시글 페이지 배너"
+        />
       </section>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>게시글</h2>
-        <ul className={utilStyles.list}>
+      <PostsContainer>
+        <p>게시글</p>
+        <ul>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
               </Link>
@@ -44,9 +51,9 @@ function Posts({ allPostsData }) {
             </li>
           ))}
         </ul>
-      </section>
+      </PostsContainer>
     </Layout>
   );
 }
 
-export default Posts;
+export default PostsPage;
