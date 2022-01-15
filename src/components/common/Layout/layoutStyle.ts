@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const LayoutStyle = styled.div`
-  margin: auto;
+  position: relative;
   font-family: 'NanumSquareR';
-
-  & > main {
-    padding: 20px 0;
-  }
 `;
