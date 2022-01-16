@@ -1,10 +1,17 @@
 import { ImageTagStyle } from './imageTagStyle';
-import imageTagPropsType from './imageTagType';
+
+interface imageTagPropsType {
+  src: string;
+  width: string;
+  height: string;
+  circle?: string;
+  alt: string;
+}
 
 function ImageTag(props: imageTagPropsType) {
-  const { ...rest } = props;
+  const { circle, ...rest } = props;
 
-  return <ImageTagStyle priority {...rest} />;
+  return <ImageTagStyle priority {...rest} circle={circle} />;
 }
 
 export default ImageTag;

@@ -4,9 +4,8 @@ import Link from 'next/link';
 import { getSortedPostsData } from '@lib/posts';
 import Date from '@components/common/Date';
 import Layout from '@components/common/Layout';
-import ImageTag from '@components/common/ImageTag';
-import utilStyles from '@styles/utils.module.css';
-import { PostsContainer } from './postsPageStyle';
+import Banner from '@components/common/Banner';
+import { PostItem, PostsWrapper } from './postsPageStyle';
 import { SiteConfig } from '@config';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -27,31 +26,23 @@ function PostsPage({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
-        <ImageTag
-          src="/images/post-banner.png"
-          width={'1920px'}
-          height={'560px'}
-          alt="게시글 페이지 배너"
-        />
-      </section>
-
-      <PostsContainer>
+      <Banner src="/images/post-banner-test.jpg" alt="게시글 페이지 배너" />
+      <PostsWrapper>
         <p>게시글</p>
         <ul>
           {allPostsData.map(({ id, date, title }) => (
-            <li key={id}>
+            <PostItem key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <p>
                 <Date dateString={date} />
-              </small>
-            </li>
+              </p>
+            </PostItem>
           ))}
         </ul>
-      </PostsContainer>
+      </PostsWrapper>
     </Layout>
   );
 }

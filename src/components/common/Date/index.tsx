@@ -1,5 +1,8 @@
 import { parseISO, format } from 'date-fns';
-import datePropsType from './dateType';
+
+interface datePropsType {
+  dateString: string;
+}
 
 function Date({ dateString }: datePropsType) {
   const date = parseISO(dateString);

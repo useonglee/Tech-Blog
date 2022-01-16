@@ -1,13 +1,34 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import ThemeSwitch from '@components/ThemeSwitch';
-import { HeaderMenu, HeaderStyle, LogoBox } from './headerStyle';
+import {
+  HeaderMenu,
+  HeaderStyle,
+  LogoBox,
+  MobileMenuButton,
+} from './headerStyle';
 import { SiteConfig } from '@config';
 
-function Header() {
+interface HeaderPropsType {
+  isScroll?: boolean;
+}
+
+function Header({ isScroll }: HeaderPropsType) {
   const { name } = SiteConfig;
+  const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
+
+  const handleShowMenu = () => {
+    setIsShowMenu((prev) => !prev);
+  };
 
   return (
-    <HeaderStyle>
+    <HeaderStyle isScroll={isScroll}>
+      <MobileMenuButton isShowMenu={isShowMenu} onClick={handleShowMenu}>
+        <span />
+        <span />
+        <span />
+      </MobileMenuButton>
+
       <LogoBox>
         {/* <Link href="/">
           <a>
@@ -15,7 +36,7 @@ function Header() {
               src="/images/profile.jpg"
               width="58px"
               height="58px"
-              circle="true"
+              circle="50%"
               alt="프로필 사진"
             />
           </a>
@@ -28,10 +49,8 @@ function Header() {
       </LogoBox>
       <HeaderMenu>
         {SiteConfig.menu.map((link) => (
-          <li>
-            <Link key={link.label} href={link.path}>
-              {link.label}
-            </Link>
+          <li key={link.label}>
+            <Link href={link.path}>{link.label}</Link>
           </li>
         ))}
       </HeaderMenu>

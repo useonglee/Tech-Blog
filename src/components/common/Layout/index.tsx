@@ -1,14 +1,39 @@
+import { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@components/Header';
-import LayoutPropsType from './layoutType';
+import Footer from '@components/Footer';
 import { LayoutStyle } from './layoutStyle';
 import { SiteConfig } from '@config';
+
+interface LayoutPropsType {
+  children: React.ReactNode;
+  home?: boolean;
+}
 
 function Layout({ children, home }: LayoutPropsType) {
   const { siteTitle } = SiteConfig;
   const url = new URL(window.location.href);
   const curPage = url.pathname.split('/')[1];
+
+  const [isScroll, setIsScroll] = useState<boolean>(false);
+
+  const handleScrollEvent = useCallback(() => {
+    if (window.pageYOffset > 0) {
+      setIsScroll(true);
+    } else {
+      setIsScroll(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener('scroll', handleScrollEvent);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollEvent);
+    };
+  }, []);
 
   return (
     <LayoutStyle>
@@ -27,7 +52,7 @@ function Layout({ children, home }: LayoutPropsType) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header />
+      <Header isScroll={isScroll} />
       <main>{children}</main>
       {!home && (
         <div>
@@ -36,6 +61,7 @@ function Layout({ children, home }: LayoutPropsType) {
           </Link>
         </div>
       )}
+      <Footer />
     </LayoutStyle>
   );
 }

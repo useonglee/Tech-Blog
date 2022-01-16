@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
-const BannerContainer = styled.section``;
-
-const PostsContainer = styled.section`
-  width: 1170px;
+const PostsWrapper = styled.section`
   margin: 0px auto 80px;
   padding-top: 120px;
 
@@ -21,11 +18,25 @@ const PostsContainer = styled.section`
     background: var(--fg);
   }
 
-  & > ul {
-    & > li {
-      margin-bottom: 120px;
-    }
+  @media (max-width: 1920px) {
+    width: 1000px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 700px;
+  }
+
+  @media (max-width: 768px) {
+    width: 450px;
   }
 `;
 
-export { BannerContainer, PostsContainer };
+const PostItem = styled.li`
+  margin-bottom: 120px;
+
+  & > p {
+    color: #666;
+  }
+`;
+
+export { PostsWrapper, PostItem };
