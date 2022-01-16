@@ -1,20 +1,42 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const HeaderStyle = styled.header`
-  position: fixed;
-  z-index: 100;
-  ${({ theme }) => theme.flex.flexVertical}
-  justify-content: space-between;
-  flex-direction: row;
-  width: 100%;
-  padding: 30px 75px;
-  font-family: 'NanumSquareB';
-  background: var(--bg);
+export const HeaderStyle = styled.header<{ isScroll: boolean }>`
+  ${({ theme, isScroll }) => {
+    const { flex } = theme;
 
-  & > button {
-    ${({ theme }) => theme.flex.flexVertical}
-    margin-left: 50px;
-  }
+    return css`
+      position: ${isScroll ? 'fixed' : 'relative'};
+      z-index: 100;
+      ${flex.flexVertical}
+      justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+      height: ${isScroll ? '73px' : '87px'};
+      padding: 30px 75px;
+      font-family: 'NanumSquareB';
+      background: var(--bg);
+      transition: all 0.25s ease-in-out;
+
+      & > button {
+        ${flex.flexVertical}
+        margin-left: 50px;
+      }
+
+      @media (max-width: 1024px) {
+        position: relative;
+        height: 3rem;
+        padding: 3px 15px;
+
+        & > div {
+          ${({ theme }) => theme.flex.flexHorizontal};
+        }
+
+        & > ul {
+          display: none;
+        }
+      }
+    `;
+  }}
 `;
 
 export const LogoBox = styled.div`
@@ -66,3 +88,78 @@ export const HeaderMenu = styled.ul`
     }
   }
 `;
+
+export const MobileMenuButton = styled.div<{ isShowMenu: boolean }>`
+  ${({ isShowMenu }) => {
+    return css`
+      cursor: pointer;
+      position: relative;
+      width: 24px;
+      height: 16px;
+
+      & > span {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: #000;
+        transition: all 0.25s;
+      }
+
+      & > span:nth-child(1) {
+        ${handleTopOfButtonDisplay(isShowMenu)}
+      }
+
+      & > span:nth-child(2) {
+        ${handleMiddleOfButtonDisplay(isShowMenu)}
+      }
+
+      & > span:nth-child(3) {
+        ${handleBottomOfButtonDisplay(isShowMenu)}
+      }
+    `;
+  }}
+`;
+
+export const ButtonLabel = styled.label`
+  display: block;
+  width: 24px;
+`;
+
+const handleTopOfButtonDisplay = (isShowMenu: boolean) => {
+  if (isShowMenu) {
+    return css`
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    `;
+  } else {
+    return css`
+      top: 0;
+    `;
+  }
+};
+
+const handleMiddleOfButtonDisplay = (isShowMenu: boolean) => {
+  if (isShowMenu) {
+    return css`
+      opacity: 0;
+    `;
+  } else {
+    return css`
+      top: 50%;
+      transform: translateY(-50%);
+    `;
+  }
+};
+
+const handleBottomOfButtonDisplay = (isShowMenu: boolean) => {
+  if (isShowMenu) {
+    return css`
+      bottom: 50%;
+      transform: translateY(50%) rotate(-45deg);
+    `;
+  } else {
+    return css`
+      bottom: 0;
+    `;
+  }
+};
