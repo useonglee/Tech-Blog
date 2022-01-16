@@ -18,11 +18,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     word-break: keep-all;
     -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-
-    &::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera*/
-    }
   }
   html {
     width: 100%;
