@@ -94,6 +94,7 @@ export const MobileMenuButton = styled.div<{ isShowMenu: boolean }>`
     return css`
       cursor: pointer;
       position: relative;
+      display: none;
       width: 24px;
       height: 16px;
 
