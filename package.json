@@ -20,6 +20,7 @@
     "react-icons": "^4.3.1",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
+    "sharp": "^0.29.3",
     "styled-components": "^5.3.3",
     "styled-reset": "^4.3.4"
   },
