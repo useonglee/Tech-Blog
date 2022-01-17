@@ -1,10 +1,11 @@
+import React from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { getSortedPostsData } from '@lib/review';
 import Date from '@components/common/Date';
 import Layout from '@components/common/Layout';
-import utilStyles from '@styles/utils.module.css';
+import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
 import { SiteConfig } from '@config';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -17,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-function Review({ allPostsData }) {
+function Review({ allPostsData }: AllPostsDataPropsType) {
   const { siteTitle } = SiteConfig;
 
   return (
@@ -26,20 +27,20 @@ function Review({ allPostsData }) {
         <link rel="stylesheet" href="../styles/font.css" />
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section>
         <p>프론트엔드 업무를 하면서 기록하고 싶은 내용을 기록합니다</p>
       </section>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>업무 회고</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+      <section>
+        <h2>업무 회고</h2>
+        <ul>
+          {allPostsData.map(({ id, date, title }: PostDataType) => (
+            <li key={id}>
               <Link href={`/review/${id}`}>
                 <a>{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small>
                 <Date dateString={date} />
               </small>
             </li>
