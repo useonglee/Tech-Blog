@@ -6,9 +6,9 @@ import { getSortedPostsData } from '@lib/posts';
 import Date from '@components/common/Date';
 import Layout from '@components/common/Layout';
 import Banner from '@components/common/Banner';
-import { PostItem, PostsWrapper } from './postsPageStyle';
-import { SiteConfig } from '@config';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
+import { SiteConfig } from '@config';
+import PostsList from '@components/common/PostsList';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -29,22 +29,7 @@ function PostsPage({ allPostsData }: AllPostsDataPropsType) {
         <title>{siteTitle}</title>
       </Head>
       <Banner src="/images/post-banner-test.jpg" alt="게시글 페이지 배너" />
-      <PostsWrapper>
-        <p>게시글</p>
-        <ul>
-          {allPostsData.map(({ id, date, title }: PostDataType) => (
-            <PostItem key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <p>
-                <Date dateString={date} />
-              </p>
-            </PostItem>
-          ))}
-        </ul>
-      </PostsWrapper>
+      <PostsList allPostsData={allPostsData} />
     </Layout>
   );
 }
