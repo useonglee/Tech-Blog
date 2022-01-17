@@ -1,3 +1,4 @@
+import React from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import Layout from '@components/common/Layout';
 import Banner from '@components/common/Banner';
 import { PostItem, PostsWrapper } from './postsPageStyle';
 import { SiteConfig } from '@config';
+import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -18,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-function PostsPage({ allPostsData }) {
+function PostsPage({ allPostsData }: AllPostsDataPropsType) {
   const { siteTitle } = SiteConfig;
 
   return (
@@ -30,7 +32,7 @@ function PostsPage({ allPostsData }) {
       <PostsWrapper>
         <p>게시글</p>
         <ul>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title }: PostDataType) => (
             <PostItem key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>

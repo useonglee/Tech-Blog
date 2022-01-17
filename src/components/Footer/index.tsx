@@ -1,3 +1,4 @@
+import React from 'react';
 import { FooterStyle } from './footerStyle';
 
 function Footer() {
