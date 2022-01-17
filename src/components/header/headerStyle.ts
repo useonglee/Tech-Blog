@@ -106,61 +106,42 @@ export const MobileMenuButton = styled.div<{ isShowMenu: boolean }>`
         transition: all 0.25s;
       }
 
-      & > span:nth-child(1) {
-        ${handleTopOfButtonDisplay(isShowMenu)}
-      }
-
-      & > span:nth-child(2) {
-        ${handleMiddleOfButtonDisplay(isShowMenu)}
-      }
-
-      & > span:nth-child(3) {
-        ${handleBottomOfButtonDisplay(isShowMenu)}
-      }
+      ${handleMenuButtonDisplay(isShowMenu)}
     `;
   }}
 `;
 
-export const ButtonLabel = styled.label`
-  display: block;
-  width: 24px;
-`;
-
-const handleTopOfButtonDisplay = (isShowMenu: boolean) => {
+const handleMenuButtonDisplay = (isShowMenu: boolean) => {
   if (isShowMenu) {
     return css`
-      top: 50%;
-      transform: translateY(-50%) rotate(45deg);
+      & > span:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      & > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      & > span:nth-child(3) {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+      }
     `;
   } else {
     return css`
-      top: 0;
-    `;
-  }
-};
+      & > span:nth-child(1) {
+        top: 0;
+      }
 
-const handleMiddleOfButtonDisplay = (isShowMenu: boolean) => {
-  if (isShowMenu) {
-    return css`
-      opacity: 0;
-    `;
-  } else {
-    return css`
-      top: 50%;
-      transform: translateY(-50%);
-    `;
-  }
-};
+      & > span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
 
-const handleBottomOfButtonDisplay = (isShowMenu: boolean) => {
-  if (isShowMenu) {
-    return css`
-      bottom: 50%;
-      transform: translateY(50%) rotate(-45deg);
-    `;
-  } else {
-    return css`
-      bottom: 0;
+      & > span:nth-child(3) {
+        bottom: 0;
+      }
     `;
   }
 };
