@@ -17,7 +17,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@next/next/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:prettier/recommended"
@@ -25,7 +24,6 @@
   "plugins": ["import", "react-hooks", "@typescript-eslint"],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-var-requires": 0,
     "prettier/prettier": [
       "error",
