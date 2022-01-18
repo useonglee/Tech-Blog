@@ -1,6 +1,7 @@
+import React from 'react';
 import { ImageTagStyle } from './imageTagStyle';
 
-interface imageTagPropsType {
+interface ImageTagPropsType {
   src: string;
   width: string;
   height: string;
@@ -8,7 +9,7 @@ interface imageTagPropsType {
   alt: string;
 }
 
-function ImageTag(props: imageTagPropsType) {
+function ImageTag(props: ImageTagPropsType) {
   const { circle, ...rest } = props;
 
   return <ImageTagStyle priority {...rest} circle={circle} />;

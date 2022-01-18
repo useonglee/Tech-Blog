@@ -1,5 +1,6 @@
-import Layout from '@components/common/Layout';
+import React from 'react';
 import Head from 'next/head';
+import Layout from '@components/common/layout';
 
 export default function TestPost() {
   return (

@@ -1,3 +1,4 @@
+import React from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider as ThemeSwich } from 'next-themes';
 import useMounted from '@hooks/useMounted';

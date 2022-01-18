@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PostsWrapper = styled.section`
+export const PostsWrapper = styled.section`
   margin: 0px auto 80px;
   padding-top: 120px;
 
@@ -31,12 +31,10 @@ const PostsWrapper = styled.section`
   }
 `;
 
-const PostItem = styled.li`
+export const PostItem = styled.li`
   margin-bottom: 120px;
 
   & > p {
     color: #666;
   }
 `;
-
-export { PostsWrapper, PostItem };

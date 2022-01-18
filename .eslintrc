@@ -23,8 +23,8 @@
   ],
   "plugins": ["import", "react-hooks", "@typescript-eslint"],
   "rules": {
-    "eslint/explicit-module-boundary-types": "off",
-    "eslint/no-var-requires": 0,
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-var-requires": 0,
     "prettier/prettier": [
       "error",
       {

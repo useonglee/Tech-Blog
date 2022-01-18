@@ -1,12 +1,12 @@
+import React from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import { getSortedPostsData } from '@lib/posts';
-import Date from '@components/common/Date';
-import Layout from '@components/common/Layout';
-import Banner from '@components/common/Banner';
-import { PostItem, PostsWrapper } from './postsPageStyle';
+import Layout from '@components/common/layout';
+import Banner from '@components/common/banner';
+import { AllPostsDataPropsType } from 'types/postsData';
 import { SiteConfig } from '@config';
+import PostsList from '@components/common/postsList';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-function PostsPage({ allPostsData }) {
+function PostsPage({ allPostsData }: AllPostsDataPropsType) {
   const { siteTitle } = SiteConfig;
 
   return (
@@ -27,22 +27,7 @@ function PostsPage({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <Banner src="/images/post-banner-test.jpg" alt="게시글 페이지 배너" />
-      <PostsWrapper>
-        <p>게시글</p>
-        <ul>
-          {allPostsData.map(({ id, date, title }) => (
-            <PostItem key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <p>
-                <Date dateString={date} />
-              </p>
-            </PostItem>
-          ))}
-        </ul>
-      </PostsWrapper>
+      <PostsList allPostsData={allPostsData} />
     </Layout>
   );
 }
