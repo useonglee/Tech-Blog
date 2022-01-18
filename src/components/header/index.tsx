@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import ThemeSwitch from '@components/ThemeSwitch';
+import ThemeSwitch from '@components/themeSwitch';
 import {
   HeaderMenu,
   HeaderStyle,

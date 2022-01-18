@@ -2,8 +2,8 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { getAllPostIds, getPostData } from '@lib/posts';
-import Layout from '@components/common/Layout';
-import Date from '@components/common/Date';
+import Layout from '@components/common/layout';
+import Date from '@components/common/date';
 import { PostDataPropsType } from 'types/postsData';
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
