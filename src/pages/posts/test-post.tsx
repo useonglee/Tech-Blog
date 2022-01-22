@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import Layout from '@components/common/layout';
+import Layout from '@components/layout';
 
 export default function TestPost() {
   return (

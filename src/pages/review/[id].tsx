@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { getAllPostIds, getPostData } from '@lib/review';
-import Layout from '@components/common/layout';
+import Layout from '@components/layout';
 import Date from '@components/common/date';
 import { PostDataPropsType } from 'types/postsData';
 

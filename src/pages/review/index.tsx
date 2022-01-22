@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { getSortedPostsData } from '@lib/review';
 import Date from '@components/common/date';
-import Layout from '@components/common/layout';
+import Layout from '@components/layout';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
 import { SiteConfig } from '@config';
 
@@ -24,7 +24,6 @@ function Review({ allPostsData }: AllPostsDataPropsType) {
   return (
     <Layout home>
       <Head>
-        <link rel="stylesheet" href="../styles/font.css" />
         <title>{siteTitle}</title>
       </Head>
       <section>
