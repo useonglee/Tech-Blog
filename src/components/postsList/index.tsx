@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-// import Date from '@components/date';
+import Date from '@components/date';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
 import { PostItem, PostsWrapper } from './PostsListStyle';
 
@@ -15,7 +15,9 @@ function PostsList({ allPostsData }: AllPostsDataPropsType) {
               <a>{title}</a>
             </Link>
             <br />
-            <p>{/* <Date dateString={date} /> */}</p>
+            <p>
+              <Date dateString={date} />
+            </p>
           </PostItem>
         ))}
       </ul>
