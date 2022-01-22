@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@components/header';
-import Footer from '@components/footer';
+import Footer from '@components/footer/index';
 import { LayoutStyle } from './layoutStyle';
 import { SiteConfig } from '@config';
 
