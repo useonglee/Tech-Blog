@@ -16,12 +16,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./src",
-    "typeRoots": ["./types", "./node_modules/@types"],
     "paths": {
       "@*": ["./*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
       "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
       "@lib/*": ["lib/*"]
     }
   },
