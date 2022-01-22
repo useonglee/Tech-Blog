@@ -28,7 +28,6 @@ function Header({ isScroll }: HeaderPropsType) {
         <span />
         <span />
       </MobileMenuButton>
-
       <LogoBox>
         {/* <Link href="/">
           <a>
