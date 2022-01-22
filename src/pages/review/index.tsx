@@ -24,7 +24,6 @@ function Review({ allPostsData }: AllPostsDataPropsType) {
   return (
     <Layout home>
       <Head>
-        <link rel="stylesheet" href="../styles/font.css" />
         <title>{siteTitle}</title>
       </Head>
       <section>
