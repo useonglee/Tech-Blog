@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { getSortedPostsData } from '@lib/posts';
-import Layout from '@components/layout';
+import Layout from '@components/common/layout';
 import Banner from '@components/common/banner';
 import PostsList from '@components/common/postsList';
 import { AllPostsDataPropsType } from 'types/postsData';
