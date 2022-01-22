@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Date from '@components/common/date';
+import Date from '@components/date';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
 import { PostItem, PostsWrapper } from './PostsListStyle';
 
