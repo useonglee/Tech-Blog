@@ -12,15 +12,11 @@ export const SiteConfig = {
   menu: [
     {
       label: '게시글',
-      path: '/posts',
+      path: '/post',
     },
     {
       label: '업무 회고',
       path: '/review',
-    },
-    {
-      label: '이력서',
-      path: '/about',
     },
   ],
   author: {

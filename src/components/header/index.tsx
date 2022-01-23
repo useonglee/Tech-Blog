@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import ThemeSwitch from '@components/themeSwitch';
+// import ThemeSwitch from '@components/themeSwitch';
 import {
   HeaderMenu,
   HeaderStyle,
@@ -53,7 +53,7 @@ function Header({ isScroll }: HeaderPropsType) {
           </li>
         ))}
       </HeaderMenu>
-      <ThemeSwitch />
+      {/* <ThemeSwitch /> */}
     </HeaderStyle>
   );
 }
