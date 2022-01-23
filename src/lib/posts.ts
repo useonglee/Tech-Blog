@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { PostDataType } from 'types/postsData';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -28,15 +29,17 @@ export function getSortedPostsData() {
   });
 
   // Sort posts by date
-  return allPostsData.sort(({ date: a }: any, { date: b }: any) => {
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
+  return allPostsData.sort(
+    ({ date: a }: PostDataType, { date: b }: PostDataType) => {
+      if (a < b) {
+        return 1;
+      } else if (a > b) {
+        return -1;
+      } else {
+        return 0;
+      }
+    },
+  );
 }
 
 export function getAllPostIds() {

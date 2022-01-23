@@ -19,6 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 function PostsPage({ allPostsData }: AllPostsDataPropsType) {
+  console.log(allPostsData);
   const { siteTitle } = SiteConfig;
 
   return (
@@ -27,7 +28,7 @@ function PostsPage({ allPostsData }: AllPostsDataPropsType) {
         <title>{siteTitle}</title>
       </Head>
       <Banner src="/images/post-banner-test.jpg" alt="게시글 페이지 배너" />
-      <PostsList allPostsData={allPostsData} />
+      <PostsList allPostsData={allPostsData} pageType="게시글" />
     </Layout>
   );
 }
