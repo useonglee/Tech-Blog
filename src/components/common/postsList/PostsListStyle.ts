@@ -42,6 +42,7 @@ export const PostItem = styled.li`
     padding: 15px 45px;
 
     & > div {
+      color: ${({ theme }) => theme.color.main};
       font-size: 14px;
       margin-bottom: 15px;
     }
