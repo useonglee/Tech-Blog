@@ -19,7 +19,6 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 function PostsPage({ allPostsData }: AllPostsDataPropsType) {
-  console.log(allPostsData);
   const { siteTitle } = SiteConfig;
 
   return (
