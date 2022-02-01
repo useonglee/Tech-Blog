@@ -1,4 +1,22 @@
 {
-  "presets": ["next/babel", "@babel/env"],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "presets": ["next/babel", "@babel/preset-env"],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3,
+        "proposals": true
+      }
+    ],
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "preprocess": false,
+        "fileName": true,
+        "displayName": true,
+        "pure": true
+      }
+    ]
+  ]
 }

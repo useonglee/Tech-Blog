@@ -6,8 +6,14 @@ import Layout from '@components/common/layout';
 import Date from '@components/common/date';
 import { PostDataPropsType } from 'types/postsData';
 
-export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const postData = await getPostData(params.id);
+interface PageType {
+  [key: string]: string | undefined;
+  id: string;
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { id } = params as PageType;
+  const postData = await getPostData(id);
 
   return {
     props: {
