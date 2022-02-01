@@ -1,13 +1,13 @@
 {
   "presets": ["next/babel"],
   "plugins": [
-    // [
-    //   "@babel/plugin-transform-runtime",
-    //   {
-    //     "corejs": 3,
-    //     "proposals": true
-    //   }
-    // ],
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3,
+        "proposals": true
+      }
+    ],
     [
       "styled-components",
       {
