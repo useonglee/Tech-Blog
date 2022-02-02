@@ -28,6 +28,11 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.25;
     background: var(--bg);
     color: var(--fg);
+
+    & > div {
+      position: relative;
+      font-family: NanumSquareR;
+    }
   }
 
   html, body, div, span, applet, object, iframe,

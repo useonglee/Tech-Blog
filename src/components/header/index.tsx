@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-// import ThemeSwitch from '@components/themeSwitch';
+import { useRouter } from 'next/router';
+import ThemeSwitch from '@components/themeSwitch';
 import {
   HeaderMenu,
   HeaderStyle,
@@ -14,16 +15,40 @@ interface HeaderPropsType {
 }
 
 function Header({ isScroll }: HeaderPropsType) {
-  const { name } = SiteConfig;
-  const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
+  const { name, menu } = SiteConfig;
+  const router = useRouter();
+  const [isShowMobileMenu, setIsShowMobileMenu] = useState<boolean>(false);
 
   const handleShowMenu = () => {
-    setIsShowMenu((prev) => !prev);
+    setIsShowMobileMenu((prev) => !prev);
   };
+
+  useEffect(() => {
+    const CONVERT_MENU = {
+      post: '게시글',
+      review: '업무 회고',
+    };
+
+    const curPageName: string = CONVERT_MENU[router.pathname.split('/')[1]];
+
+    if (curPageName === undefined) {
+      return;
+    }
+
+    const menus = document.querySelectorAll('.header__menu');
+    const filterClickedMenu = Array.from(menus).filter(
+      (menu) => menu.textContent === curPageName,
+    )[0];
+
+    filterClickedMenu.classList.add('active');
+  }, []);
 
   return (
     <HeaderStyle isScroll={isScroll}>
-      <MobileMenuButton isShowMenu={isShowMenu} onClick={handleShowMenu}>
+      <MobileMenuButton
+        isShowMobileMenu={isShowMobileMenu}
+        onClick={handleShowMenu}
+      >
         <span />
         <span />
         <span />
@@ -47,13 +72,15 @@ function Header({ isScroll }: HeaderPropsType) {
         </h2>
       </LogoBox>
       <HeaderMenu>
-        {SiteConfig.menu.map((link) => (
-          <li key={link.label}>
-            <Link href={link.path}>{link.label}</Link>
+        {menu.map(({ label, path }) => (
+          <li key={label}>
+            <Link href={path}>
+              <a className="header__menu">{label}</a>
+            </Link>
           </li>
         ))}
       </HeaderMenu>
-      {/* <ThemeSwitch /> */}
+      <ThemeSwitch />
     </HeaderStyle>
   );
 }

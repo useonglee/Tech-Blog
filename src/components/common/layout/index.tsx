@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Header from '@components/header';
 import Footer from '@components/footer';
-import { LayoutStyle } from './layoutStyle';
 import { SiteConfig } from '@config';
 
 interface LayoutPropsType {
@@ -37,7 +36,7 @@ function Layout({ children, home }: LayoutPropsType) {
   }, []);
 
   return (
-    <LayoutStyle>
+    <>
       <Head>
         <meta
           property="og:image"
@@ -57,7 +56,7 @@ function Layout({ children, home }: LayoutPropsType) {
         </div>
       )}
       <Footer />
-    </LayoutStyle>
+    </>
   );
 }
 

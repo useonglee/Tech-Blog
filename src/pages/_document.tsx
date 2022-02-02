@@ -45,7 +45,12 @@ class MyDocument extends Document {
           <meta name="description" content="useonglee's tech blog" />
 
           <link rel="icon" href="/favicon.ico" />
-          <link rel="stylesheet" href="/font.css" />
+          <link
+            as="style"
+            rel="stylesheet preload prefetch"
+            href="/font.css"
+            crossOrigin="anonymous"
+          />
         </Head>
         <body>
           <Main />
