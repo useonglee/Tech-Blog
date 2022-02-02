@@ -5,25 +5,25 @@ export const HeaderStyle = styled.header<{ isScroll: boolean }>`
     const { flex } = theme;
 
     return css`
-      position: ${isScroll ? 'fixed' : 'relative'};
+      position: sticky;
+      top: 0;
       z-index: 100;
-      ${flex.flexVertical}
+      ${flex.flexVertical};
       justify-content: space-between;
       flex-direction: row;
       width: 100%;
-      height: ${isScroll ? '73px' : '87px'};
-      padding: 30px 75px;
+      height: ${isScroll ? '70px' : '90px'};
+      padding: 0px 75px;
       font-family: 'NanumSquareB';
       background: var(--bg);
       transition: all 0.25s ease-in-out;
 
       & > button {
-        ${flex.flexVertical}
+        ${flex.flexVertical};
         margin-left: 50px;
       }
 
       @media (max-width: 1024px) {
-        position: relative;
         height: 3rem;
         padding: 3px 15px;
 
@@ -57,6 +57,7 @@ export const HeaderMenu = styled.ul`
   ${({ theme }) => theme.flex.flexVertical}
   justify-content: end;
   flex-grow: 1;
+  font-family: NanumSquareL;
 
   & > li {
     margin: 0 25px;
@@ -65,6 +66,10 @@ export const HeaderMenu = styled.ul`
     & > a {
       display: block;
       position: relative;
+
+      &.active {
+        font-family: NanumSquareB;
+      }
     }
 
     & > a::after {
@@ -89,8 +94,8 @@ export const HeaderMenu = styled.ul`
   }
 `;
 
-export const MobileMenuButton = styled.div<{ isShowMenu: boolean }>`
-  ${({ isShowMenu }) => {
+export const MobileMenuButton = styled.div<{ isShowMobileMenu: boolean }>`
+  ${({ isShowMobileMenu }) => {
     return css`
       cursor: pointer;
       position: relative;
@@ -106,13 +111,13 @@ export const MobileMenuButton = styled.div<{ isShowMenu: boolean }>`
         transition: all 0.25s;
       }
 
-      ${handleMenuButtonDisplay(isShowMenu)}
+      ${handleMenuButtonDisplay(isShowMobileMenu)}
     `;
   }}
 `;
 
-const handleMenuButtonDisplay = (isShowMenu: boolean) => {
-  if (isShowMenu) {
+const handleMenuButtonDisplay = (isShowMobileMenu: boolean) => {
+  if (isShowMobileMenu) {
     return css`
       & > span:nth-child(1) {
         top: 50%;
