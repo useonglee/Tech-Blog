@@ -1,36 +1,59 @@
-import React from 'react';
-import Link from 'next/link';
-import Date from '@components/common/date';
-import ImageTag from '@components/common/imageTag';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import PostCard from '@components/common/postCard';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
-import { PostItem, PostsWrapper } from './PostsListStyle';
+import { PostsWrapper } from './PostsListStyle';
+
+let end = 7;
 
 function PostsList({ allPostsData, pageType }: AllPostsDataPropsType) {
+  const pageEndRef = useRef<HTMLDivElement>(null);
+
+  const [postsData, setPostsData] = useState<PostDataType[]>(
+    allPostsData.slice(0, end),
+  );
+
+  const observerCallback: IntersectionObserverCallback = useCallback(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log(entry.target.getBoundingClientRect().y);
+          if (
+            end <= postsData.length &&
+            entry.target.getBoundingClientRect().y > 864
+          ) {
+            end += 7;
+            setPostsData(allPostsData.slice(0, end));
+
+            observer.unobserve(pageEndRef.current);
+          } else {
+            return;
+          }
+        }
+      });
+    },
+    [postsData],
+  );
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (pageEndRef.current) {
+      observer = new IntersectionObserver(observerCallback, { threshold: 0.3 });
+      observer.observe(pageEndRef.current);
+    }
+
+    return () => observer && observer.disconnect();
+  }, [postsData]);
+
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, []);
+
   return (
     <PostsWrapper pageType={pageType}>
       <p>{pageType}</p>
-      <ul>
-        {allPostsData.map(
-          ({ id, layout, title, subTitle, date, thumbnail }: PostDataType) => (
-            <PostItem key={id}>
-              <ImageTag
-                src={thumbnail}
-                width={'170'}
-                height={'170'}
-                alt="게시글 썸네일"
-              />
-              <div>
-                <div>#블로그 #태그</div>
-                <Link href={`/${layout}/${id}`}>
-                  <a>{title}</a>
-                </Link>
-                <p>{subTitle}</p>
-                <Date dateString={date} />
-              </div>
-            </PostItem>
-          ),
-        )}
-      </ul>
+      <PostCard allPostsData={postsData} />
+      <div className="page__end" ref={pageEndRef} />
     </PostsWrapper>
   );
 }

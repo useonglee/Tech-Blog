@@ -30,38 +30,3 @@ export const PostsWrapper = styled.section<{ pageType: string }>`
     width: 450px;
   }
 `;
-
-export const PostItem = styled.li`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 120px;
-
-  & > div {
-    display: flex;
-    flex-direction: column;
-    padding: 15px 45px;
-
-    & > div {
-      color: ${({ theme }) => theme.color.main};
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    & > a {
-      margin-bottom: 15px;
-      font-size: 22px;
-      font-family: 'NanumSquareEB';
-    }
-
-    & > p {
-      font-size: 15px;
-      margin-bottom: 20px;
-      line-height: 2;
-    }
-
-    & > time {
-      font-size: 14px;
-      color: #666;
-    }
-  }
-`;
