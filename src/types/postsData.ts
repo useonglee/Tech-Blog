@@ -1,6 +1,6 @@
 export interface AllPostsDataPropsType {
   allPostsData: PostDataType[];
-  pageType: string;
+  pageType?: string;
 }
 
 export interface PostDataPropsType {
@@ -15,4 +15,5 @@ export interface PostDataType {
   date: string;
   thumbnail: string;
   contentHtml?: string;
+  tags?: string[];
 }

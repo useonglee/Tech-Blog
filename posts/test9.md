@@ -1,8 +1,8 @@
 ---
 layout: 'post'
-title: '블로그 첫번째 포스팅!'
-subTitle: '첫번째 포스팅 테스트입니다!! '
-date: '2022-02-02'
+title: 'test posting 09'
+subTitle: '테스트입니다!!'
+date: '2022-02-09'
 thumbnail: '/images/post-banner-test.jpg'
 tags:
   - '블로그'
