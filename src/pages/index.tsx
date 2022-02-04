@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@components/common/layout';
 import Banner from '@components/common/banner';
 
-function Home() {
+function HomePage() {
   return (
     <Layout home>
       <Banner src="/images/post-banner-test.jpg" alt="메인 페이지 배너" />
@@ -11,4 +11,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;
