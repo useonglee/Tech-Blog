@@ -17,3 +17,8 @@ export interface PostDataType {
   contentHtml?: string;
   tags?: string[];
 }
+
+export interface PostPageType {
+  [key: string]: string | undefined;
+  id: string;
+}

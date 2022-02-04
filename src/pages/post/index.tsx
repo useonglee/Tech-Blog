@@ -1,14 +1,14 @@
 import React from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
-import { getSortedPostsData } from '@lib/posts';
+import { getSortedPostsData } from '@lib/getPosts';
 import Layout from '@components/common/layout';
 import Banner from '@components/common/banner';
 import PostsList from '@components/common/postsList';
 import { SiteConfig } from '@config';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData('post');
 
   return {
     props: {
@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-function PostsPage({
+function PostPage({
   allPostsData,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { siteTitle } = SiteConfig;
@@ -33,4 +33,4 @@ function PostsPage({
   );
 }
 
-export default PostsPage;
+export default PostPage;

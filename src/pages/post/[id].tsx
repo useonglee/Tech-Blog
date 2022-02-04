@@ -1,19 +1,14 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { getAllPostIds, getPostData } from '@lib/posts';
+import { getAllPostIds, getPostData } from '@lib/getPosts';
 import Layout from '@components/common/layout';
 import Date from '@components/common/date';
-import { PostDataPropsType } from 'types/postsData';
-
-interface PageType {
-  [key: string]: string | undefined;
-  id: string;
-}
+import { PostDataPropsType, PostPageType } from 'types/postsData';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { id } = params as PageType;
-  const postData = await getPostData(id);
+  const { id } = params as PostPageType;
+  const postData = await getPostData(id, 'post');
 
   return {
     props: {
@@ -23,7 +18,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds();
+  const paths = getAllPostIds('post');
 
   return {
     paths,
@@ -31,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-function Post({ postData }: PostDataPropsType) {
+function PostDetailPage({ postData }: PostDataPropsType) {
   return (
     <Layout>
       <Head>
@@ -48,4 +43,4 @@ function Post({ postData }: PostDataPropsType) {
   );
 }
 
-export default Post;
+export default PostDetailPage;
