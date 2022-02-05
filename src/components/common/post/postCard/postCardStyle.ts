@@ -10,16 +10,6 @@ export const PostCardWrapper = styled.li`
     flex-direction: column;
     padding: 15px 45px;
 
-    & > span {
-      margin-bottom: 15px;
-
-      & > a {
-        margin-right: 20px;
-        color: ${({ theme }) => theme.color.main};
-        font-size: 14px;
-      }
-    }
-
     & > a {
       margin-bottom: 15px;
       font-size: 22px;
@@ -34,7 +24,7 @@ export const PostCardWrapper = styled.li`
 
     & > time {
       font-size: 14px;
-      color: #666;
+      color: ${({ theme }) => theme.color.time};
     }
   }
 `;
