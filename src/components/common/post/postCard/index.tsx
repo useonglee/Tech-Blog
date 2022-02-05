@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Date from '@components/common/date';
 import ImageTag from '@components/common/imageTag';
+import Tag from '@components/common/tag';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
 import { PostCardWrapper } from './postCardStyle';
 
@@ -17,13 +18,7 @@ function PostCard({ allPostsData }: AllPostsDataPropsType) {
             alt="게시글 썸네일"
           />
           <div>
-            <span>
-              {post.tags.map((tag) => (
-                <Link key={tag} href="/">
-                  <a>{`#${tag}`}</a>
-                </Link>
-              ))}
-            </span>
+            <Tag tags={post.tags} margin="15px" />
             <Link href={`/${post.layout}/${post.id}`}>
               <a>{post.title}</a>
             </Link>

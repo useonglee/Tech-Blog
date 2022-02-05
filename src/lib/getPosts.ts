@@ -5,17 +5,19 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { PostDataType } from 'types/postsData';
 
-const postsDirectory = path.join(process.cwd(), 'posts');
+function postsDirectory(type: string) {
+  return path.join(process.cwd(), type);
+}
 
-export function getSortedPostsData() {
+export function getSortedPostsData(type: string) {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs.readdirSync(postsDirectory(type));
   const allPostsData = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
 
     // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
+    const fullPath = path.join(postsDirectory(type), fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     // Use gray-matter to parse the post metadata section
@@ -27,7 +29,6 @@ export function getSortedPostsData() {
       ...matterResult.data,
     };
   });
-
   // Sort posts by date
   return allPostsData.sort(
     ({ date: a }: PostDataType, { date: b }: PostDataType) => {
@@ -42,8 +43,8 @@ export function getSortedPostsData() {
   );
 }
 
-export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
+export function getAllPostIds(type: string) {
+  const fileNames = fs.readdirSync(postsDirectory(type));
 
   // Returns an array that looks like this:
   // [
@@ -67,8 +68,8 @@ export function getAllPostIds() {
   });
 }
 
-export async function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+export async function getPostData(id: string, type: string) {
+  const fullPath = path.join(postsDirectory(type), `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   // Use gray-matter to parse the post metadata section

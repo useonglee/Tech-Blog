@@ -4,7 +4,7 @@ export interface AllPostsDataPropsType {
 }
 
 export interface PostDataPropsType {
-  postData: PostDataType;
+  postData?: PostDataType;
 }
 
 export interface PostDataType {
@@ -16,4 +16,9 @@ export interface PostDataType {
   thumbnail: string;
   contentHtml?: string;
   tags?: string[];
+}
+
+export interface PostPageType {
+  [key: string]: string | undefined;
+  id: string;
 }

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import PostCard from '@components/common/postCard';
+import PostCard from '@components/common/post/postCard';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
 import { PostsWrapper } from './PostsListStyle';
 

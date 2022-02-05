@@ -1,39 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import Head from 'next/head';
+import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Header from '@components/header';
 import Footer from '@components/footer';
+import Header from '@components/header';
+import useScrolling from '@hooks/useScrolling';
+import { LayoutPropsType } from 'types/layout';
 import { SiteConfig } from '@config';
+import { PostLayoutStyle } from './style';
 
-interface LayoutPropsType {
-  children: React.ReactNode;
-  home?: boolean;
-}
-
-function Layout({ children, home }: LayoutPropsType) {
+function PostDetailLayout({ children }: LayoutPropsType) {
   const { siteTitle } = SiteConfig;
   const router = useRouter();
   const prevPage = router.pathname.split('/')[1];
-
-  const [isScroll, setIsScroll] = useState<boolean>(false);
-
-  const handleScrollEvent = useCallback(() => {
-    if (window.pageYOffset > 0) {
-      setIsScroll(true);
-    } else {
-      setIsScroll(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    window.addEventListener('scroll', handleScrollEvent);
-
-    return () => {
-      window.removeEventListener('scroll', handleScrollEvent);
-    };
-  }, []);
 
   return (
     <>
@@ -46,18 +25,18 @@ function Layout({ children, home }: LayoutPropsType) {
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <Header isScroll={isScroll} />
-      <main>{children}</main>
-      {!home && (
+      <Header isScroll={useScrolling()} />
+      <PostLayoutStyle>
+        {children}
         <div>
           <Link href={`/${prevPage}`}>
             <a>← Back to home</a>
           </Link>
         </div>
-      )}
+      </PostLayoutStyle>
       <Footer />
     </>
   );
 }
 
-export default Layout;
+export default PostDetailLayout;
