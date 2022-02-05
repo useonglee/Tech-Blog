@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { getAllPostIds, getPostData } from '@lib/getPosts';
-import Layout from '@components/common/layout';
+import PostDetailLayout from '@components/common/layout/postDetail';
 import Date from '@components/common/date';
 import { PostDataPropsType, PostPageType } from 'types/postsData';
 
@@ -28,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 function ReviewDetailPage({ postData }: PostDataPropsType) {
   return (
-    <Layout>
+    <PostDetailLayout>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -39,7 +39,7 @@ function ReviewDetailPage({ postData }: PostDataPropsType) {
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-    </Layout>
+    </PostDetailLayout>
   );
 }
 
