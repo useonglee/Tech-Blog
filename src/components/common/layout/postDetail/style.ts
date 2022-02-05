@@ -14,3 +14,19 @@ export const PostLayoutStyle = styled.main`
     work-break: keep-all;
   }
 `;
+
+export const PostInfomation = styled.div`
+  margin-bottom: 2rem;
+
+  & > time {
+    margin-right: 0.5rem;
+    color: ${({ theme }) => theme.color.time};
+  }
+`;
+
+export const PostContent = styled.div`
+  font-size: 1rem;
+  line-height: 1.5;
+  work-break: keep-all;
+  overflow-wrap: break-word;
+`;

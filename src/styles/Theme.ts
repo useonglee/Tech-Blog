@@ -27,6 +27,7 @@ const color = {
   main: '#6667AB',
   blue: '#1890FF',
   lightGrey: '#D9D9D9',
+  time: '#666666',
 };
 
 const Theme = {
