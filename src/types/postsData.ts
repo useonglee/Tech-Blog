@@ -4,7 +4,7 @@ export interface AllPostsDataPropsType {
 }
 
 export interface PostDataPropsType {
-  postData: PostDataType;
+  postData?: PostDataType;
 }
 
 export interface PostDataType {
