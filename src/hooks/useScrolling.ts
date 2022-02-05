@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-function useScrolling() {
+function useScrolling(): ReturnType<() => boolean> {
   const [isScroll, setIsScroll] = useState<boolean>(false);
 
   const handleScrollEvent = useCallback(() => {
