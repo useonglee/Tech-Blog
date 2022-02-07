@@ -13,8 +13,8 @@ function PostCard({ allPostsData }: AllPostsDataPropsType) {
         <PostCardWrapper key={post.id}>
           <ImageTag
             src={post.thumbnail}
-            width={'170'}
-            height={'170'}
+            width={170}
+            height={170}
             alt="게시글 썸네일"
           />
           <div>

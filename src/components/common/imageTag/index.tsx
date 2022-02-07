@@ -3,8 +3,8 @@ import { ImageTagStyle } from './imageTagStyle';
 
 interface ImageTagPropsType {
   src: string;
-  width: string;
-  height: string;
+  width: number;
+  height: number;
   circle?: string;
   alt: string;
 }

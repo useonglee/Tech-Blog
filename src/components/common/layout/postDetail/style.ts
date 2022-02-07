@@ -15,8 +15,10 @@ export const PostLayoutStyle = styled.main`
   }
 `;
 
+export const PostHead = styled.section``;
+
 export const PostInfomation = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 
   & > time {
     margin-right: 0.5rem;
@@ -24,9 +26,13 @@ export const PostInfomation = styled.div`
   }
 `;
 
-export const PostContent = styled.div`
+export const PostContent = styled.section`
+  width: 768px;
+  margin: 5rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid ${({ theme }) => theme.color.lightGrey};
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.7;
   work-break: keep-all;
   overflow-wrap: break-word;
 `;
