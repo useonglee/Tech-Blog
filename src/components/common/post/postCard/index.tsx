@@ -4,7 +4,7 @@ import Date from '@components/common/date';
 import ImageTag from '@components/common/imageTag';
 import Tag from '@components/common/tag';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
-import { PostCardWrapper } from './postCardStyle';
+import { PostCardWrapper } from './style';
 
 function PostCard({ allPostsData }: AllPostsDataPropsType) {
   return (
@@ -18,7 +18,7 @@ function PostCard({ allPostsData }: AllPostsDataPropsType) {
             alt="게시글 썸네일"
           />
           <div>
-            <Tag tags={post.tags} margin="15px" />
+            <Tag tags={post.tags} margin="1rem" />
             <Link href={`/${post.layout}/${post.id}`}>
               <a>{post.title}</a>
             </Link>
