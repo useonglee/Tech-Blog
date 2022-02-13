@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PostCard from '@components/common/post/postCard';
 import { AllPostsDataPropsType, PostDataType } from 'types/postsData';
-import { PostsWrapper } from './PostsListStyle';
+import { PostsWrapper } from './style';
 
 let end = 7;
 
@@ -16,11 +16,8 @@ function PostsList({ allPostsData, pageType }: AllPostsDataPropsType) {
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(entry.target.getBoundingClientRect().y);
-          if (
-            end <= postsData.length &&
-            entry.target.getBoundingClientRect().y > 864
-          ) {
+          // console.log(entry.target.getBoundingClientRect().y);
+          if (end <= postsData.length) {
             end += 7;
             setPostsData(allPostsData.slice(0, end));
 

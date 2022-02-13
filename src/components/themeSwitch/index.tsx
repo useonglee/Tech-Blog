@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
 import useMounted from '@hooks/useMounted';
-import { DarkMode, LightMode } from './themeSwitchStyle';
+import { DarkMode, LightMode } from './style';
 
 function ThemeSwitch() {
   const { theme, setTheme } = useTheme();
