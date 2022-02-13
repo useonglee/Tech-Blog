@@ -8,7 +8,7 @@ interface DatePropsType {
 function Date({ dateString }: DatePropsType) {
   const date = parseISO(dateString);
 
-  return <time dateTime={dateString}>{format(date, 'yyyy-MM-dd')}</time>;
+  return <time dateTime={dateString}>{format(date, 'yyyy년 MM월 dd일')}</time>;
 }
 
 export default Date;
