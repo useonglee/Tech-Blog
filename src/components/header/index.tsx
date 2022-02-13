@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ThemeSwitch from '@components/themeSwitch';
-import {
-  HeaderMenu,
-  HeaderStyle,
-  LogoBox,
-  MobileMenuButton,
-} from './headerStyle';
+import { HeaderMenu, HeaderStyle, LogoBox, MobileMenuButton } from './style';
 import { SiteConfig } from '@config';
 
 interface HeaderPropsType {
@@ -54,17 +49,6 @@ function Header({ isScroll }: HeaderPropsType) {
         <span />
       </MobileMenuButton>
       <LogoBox>
-        {/* <Link href="/">
-          <a>
-            <ImageTag
-              src="/images/profile.jpg"
-              width="58px"
-              height="58px"
-              circle="50%"
-              alt="프로필 사진"
-            />
-          </a>
-        </Link> */}
         <h2>
           <Link href="/">
             <a>{name}</a>

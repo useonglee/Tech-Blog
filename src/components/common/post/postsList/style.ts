@@ -2,19 +2,20 @@ import styled from 'styled-components';
 
 export const PostsWrapper = styled.section<{ pageType: string }>`
   margin: 0px auto 80px;
-  padding-top: 120px;
+  padding-top: 7.5rem;
 
   & > p {
-    margin-bottom: 30px;
-    font-size: 18px;
+    margin-bottom: 1.875rem;
+    font-size: ${({ theme }) => theme.fontSize.lg};
   }
 
   & > p::after {
     content: '';
     display: block;
-    width: ${({ pageType }) => (pageType === '게시글' ? '49px' : '70px')};
+    width: ${({ pageType }) =>
+      pageType === '게시글' ? '3.062rem' : '4.375rem'};
     height: 1px;
-    margin-top: 8px;
+    margin-top: 0.5rem;
     background: var(--fg);
   }
 

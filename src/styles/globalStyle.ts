@@ -79,8 +79,7 @@ export const GlobalStyle = createGlobalStyle`
     margin:0;
     border-radius:0;
     vertical-align:middle;
-    font-size:100%;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-size:1rem;
     background:transparent;
   }
   button,

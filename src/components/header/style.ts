@@ -40,17 +40,23 @@ export const HeaderStyle = styled.header<{ isScroll: boolean }>`
 `;
 
 export const LogoBox = styled.div`
-  ${({ theme }) => theme.flex.flexCenter}
-  flex-direction: row;
-  flex-shrink: 0;
+  ${({ theme }) => {
+    const { flex, fontSize } = theme;
 
-  & > a {
-    margin-right: 12px;
-  }
+    return css`
+      ${flex.flexCenter};
+      flex-direction: row;
+      flex-shrink: 0;
 
-  & > h2 {
-    font-size: 1.5rem;
-  }
+      & > a {
+        margin-right: 12px;
+      }
+
+      & > h2 {
+        font-size: ${fontSize.xxl};
+      }
+    `;
+  }}
 `;
 
 export const HeaderMenu = styled.ul`
