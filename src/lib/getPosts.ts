@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import html from 'remark-html';
+// import html from 'remark-html';
 import { PostDataType } from 'types/postsData';
 
 function postsDirectory(type: string) {
@@ -77,7 +77,7 @@ export async function getPostData(id: string, type: string) {
 
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
-    .use(html)
+    .use(null)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 

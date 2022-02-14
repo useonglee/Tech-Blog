@@ -12,6 +12,7 @@ import {
   PostHead,
   PostInfomation,
 } from '@components/common/layout/postDetail/style';
+import Markdown from '@components/markdown';
 
 export default function PostDetailPage({ postData }: PostDataPropsType) {
   return (
@@ -32,7 +33,9 @@ export default function PostDetailPage({ postData }: PostDataPropsType) {
           alt="게시글 썸네일"
         />
       </PostHead>
-      <PostContent dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <PostContent>
+        <Markdown content={postData.contentHtml} />
+      </PostContent>
     </PostDetailLayout>
   );
 }
