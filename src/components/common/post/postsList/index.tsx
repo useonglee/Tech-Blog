@@ -16,7 +16,6 @@ function PostsList({ allPostsData, pageType }: AllPostsDataPropsType) {
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // console.log(entry.target.getBoundingClientRect().y);
           if (end <= postsData.length) {
             end += 7;
             setPostsData(allPostsData.slice(0, end));

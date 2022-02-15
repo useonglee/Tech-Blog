@@ -17,15 +17,28 @@ tags:
 const hello = world;
 ```
 
-<br/>
-<br/>
-
 ### 제목 2: 테스트 포스팅
 
-테스트 포스팅입니다! @@@@@테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!
+**테스트 포스팅입니다!**
+
+@@@@@테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!
+
+`강조!!!!` 노 강조
 
 ```jsx
-const hello = world;
+import React from 'react';
+import { TitleStyle } from './titleStyle';
+import { titlePropsType } from './titleType';
+
+function Title({ level, children, ...props }: titlePropsType) {
+  return (
+    <TitleStyle level={level} {...props}>
+      {children}
+    </TitleStyle>
+  );
+}
+
+export default Title;
 ```
 
 ### 제목 3: 테스트 포스팅
@@ -35,3 +48,5 @@ const hello = world;
 ```jsx
 const hello = world;
 ```
+
+> 인용문
