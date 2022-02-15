@@ -21,10 +21,24 @@ const hello = world;
 
 **테스트 포스팅입니다!**
 
-@@@@@테스트 포스팅입니다!\n테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!`테스트 포스팅입니다!`테스트 포스팅입니다!테스트 포스팅입니다!
+@@@@@테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!테스트 포스팅입니다!
+
+`강조!!!!` 노 강조
 
 ```jsx
-const hello = world;
+import React from 'react';
+import { TitleStyle } from './titleStyle';
+import { titlePropsType } from './titleType';
+
+function Title({ level, children, ...props }: titlePropsType) {
+  return (
+    <TitleStyle level={level} {...props}>
+      {children}
+    </TitleStyle>
+  );
+}
+
+export default Title;
 ```
 
 ### 제목 3: 테스트 포스팅
@@ -35,13 +49,4 @@ const hello = world;
 const hello = world;
 ```
 
-<br />
-<br />
-
 > 인용문
-
-글자 \`배경색\`
-
-\`\`\`
-코드 블럭
-\`\`\`

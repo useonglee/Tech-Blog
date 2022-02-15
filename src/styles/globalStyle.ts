@@ -5,12 +5,16 @@ export const GlobalStyle = createGlobalStyle`
   ${reset}
   :root {
     --fg: #202020;
-    --bg: #fff;
+    --bg: #FFFFFF;
+    --bg-inline-code: #E9ECEF;
+    --blockquote: #F8F9FA;
   }
 
   [data-theme="dark"] {
-    --fg: #d9d9d9;
-    --bg: #1e1f21;
+    --fg: #D9D9D9;
+    --bg: #121212;
+    --bg-inline-code: #363636;
+    --blockquote: #1E1E1E;
   }
 
   /* CSS 초기화 */
